@@ -1,0 +1,48 @@
+{
+    "description": "This tool is a free and unlimited python CLI for google translate.\nDeveloped by Youssef Mohamd.\nGithub:(https://github.com/youssefmo7amed)\nbased on (lushan88a/google_trans_new)\nunder MIT license.",
+    "argument": {
+        "version": {
+            "name": "-v",
+            "flag": "--version",
+            "value": "0.0.1"
+        },
+        "text": {
+            "help": "text that will be translated.",
+            "examples": [
+                "python main.js Ägypten",
+                "python main.js مصر",
+                "python main.js Mısır"
+            ]
+        },
+        "source": {
+            "name": "-s",
+            "flag": "--source",
+            "help": "the source language.",
+            "examples": [
+                "python main.js Ägypten -s de",
+                "python main.js مصر -s ar",
+                "python main.js مصر --source ar",
+                "python main.js Mısır -s tr",
+                "python main.js Mısır -source tr"
+            ]
+        },
+        "target": {
+            "name": "-t",
+            "flag": "--target",
+            "help": "the target language.",
+            "examples": [
+                "python main.js Ägypten -t en",
+                "python main.js Ägypten --target en",
+                "python main.js مصر -t hi",
+                "python main.js Mısır -t ar",
+                "python main.js Mısır -target ar"
+            ]
+        },
+        "exit": {
+            "name": "-x",
+            "flag": "--exit",
+            "help": "exit the app.",
+            "default": "true"
+        }
+    }
+}
