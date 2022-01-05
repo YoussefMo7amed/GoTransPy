@@ -11,8 +11,20 @@ This interface is for academic use only, please do not use it for commercial use
 # Prerequisites
 
 - **Python >=3.6**
+  - _You can install python form [here](https://www.python.org/downloads/)_
 - **requests**
+
+```pip
+$ pip install requests
+```
+
 - **six**
+
+```pip
+$ pip install six
+```
+
+- _if you don't have pip you can follow [these steps](https://pip.pypa.io/en/stable/installation/)_
 
 ---
 
@@ -21,28 +33,28 @@ This interface is for academic use only, please do not use it for commercial use
 ### Auto detection translation (**\*Arabic** is the default targeted langauge\*)
 
 ```bash
-$ python main.js "hello world"
+$ python main.py "hello world"
 مرحبا بالعالم
 ```
 
 ### Target a language by adding "-t" flag
 
 ```bash
-$ python main.js "hello world" -t de
+$ python main.py "hello world" -t de
 Hallo Welt
 ```
 
 ### Change source language by adding "-s" flag
 
 ```bash
-$ python main.js "Auto" -s de -t en
+$ python main.py "Auto" -s de -t en
 Automobile
 ```
 
 ### Help tag
 
 ```bash
-$ python main.js -h
+$ python main.py -h
  positional arguments:
   text                  text that will be translated.
 
@@ -59,28 +71,8 @@ optional arguments:
 
 # License
 
-GoTransPy is licensed under the MIT License. The terms are as follows:
+Copyright (c) 2022 Youssef Mohamed.
 
-```
-MIT License
-
-Copyright (c) 2022 [Youssef](https://github.com/YoussefMo7amed).
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/YoussefMo7amed/GoTransPy/main/LICENSE)
+![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red?style=flat)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FYoussefMo7amed%2FGoTransPy&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
