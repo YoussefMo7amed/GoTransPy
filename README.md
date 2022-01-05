@@ -1,34 +1,32 @@
 # GoTransPy
 
-### Version 0.0.1
-
 A free and unlimited python CLI for google translate based on [google_trans_new](https://github.com/lushan88a/google_trans_new).  
 It's very easy to use and solve the problem that the old api which use tk value cannot be used.
 This interface is for academic use only, please do not use it for commercial use.
 
 ---
 
-# Prerequisites
+## Prerequisites
 
 - **Python >=3.6**
   - _You can install python form [here](https://www.python.org/downloads/)_
 - **requests**
 
 ```pip
-$ pip install requests
+pip install requests
 ```
 
 - **six**
 
 ```pip
-$ pip install six
+pip install six
 ```
 
 - _if you don't have pip you can follow [these steps](https://pip.pypa.io/en/stable/installation/)_
 
 ---
 
-# Basic Usage
+## Basic Usage
 
 ### Auto detection translation (**\*Arabic** is the default targeted langauge\*)
 
@@ -69,7 +67,7 @@ optional arguments:
 
 ---
 
-# License
+## License
 
 Copyright (c) 2022 Youssef Mohamed.
 
