@@ -59,12 +59,12 @@ optional arguments:
 
 # License
 
-GoTransPy is licensed under the MIT License. The terms are as follows:
+GoTransPy is licensed under the MIT License. 
+Copyright (c) 2022 [Youssef Mohamed](https://github.com/YoussefMo7amed).
 
+The terms are as follows:
 ```
 MIT License
-
-Copyright (c) 2022 [Youssef](https://github.com/YoussefMo7amed).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
