@@ -37,12 +37,6 @@
                 "python main.js Mısır -t ar",
                 "python main.js Mısır -target ar"
             ]
-        },
-        "exit": {
-            "name": "-x",
-            "flag": "--exit",
-            "help": "exit the app.",
-            "default": "true"
         }
     }
 }
