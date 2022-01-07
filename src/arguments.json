@@ -9,9 +9,9 @@
         "text": {
             "help": "text that will be translated.",
             "examples": [
-                "python main.js Ägypten",
-                "python main.js مصر",
-                "python main.js Mısır"
+                "python main.py Ägypten",
+                "python main.py مصر",
+                "python main.py Mısır"
             ]
         },
         "source": {
@@ -19,11 +19,11 @@
             "flag": "--source",
             "help": "the source language.",
             "examples": [
-                "python main.js Ägypten -s de",
-                "python main.js مصر -s ar",
-                "python main.js مصر --source ar",
-                "python main.js Mısır -s tr",
-                "python main.js Mısır -source tr"
+                "python main.py Ägypten -s de",
+                "python main.py مصر -s ar",
+                "python main.py مصر --source ar",
+                "python main.py Mısır -s tr",
+                "python main.py Mısır -source tr"
             ]
         },
         "target": {
@@ -31,18 +31,24 @@
             "flag": "--target",
             "help": "the target language.",
             "examples": [
-                "python main.js Ägypten -t en",
-                "python main.js Ägypten --target en",
-                "python main.js مصر -t hi",
-                "python main.js Mısır -t ar",
-                "python main.js Mısır -target ar"
+                "python main.py Ägypten -t en",
+                "python main.py Ägypten --target en",
+                "python main.py مصر -t hi",
+                "python main.py Mısır -t ar",
+                "python main.py Mısır -target ar"
             ]
         },
-        "exit": {
-            "name": "-x",
-            "flag": "--exit",
-            "help": "exit the app.",
-            "default": "true"
+        "file":{
+            "name":"-f",
+            "flag": "--file",
+            "help": "read from file.",
+            "examples": [
+                "python main.py Ägypten -t en",
+                "python main.py Ägypten --target en",
+                "python main.py مصر -t hi",
+                "python main.py Mısır -t ar",
+                "python main.py Mısır -target ar"
+            ]
         }
     }
 }
