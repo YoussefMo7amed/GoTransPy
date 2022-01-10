@@ -1,11 +1,9 @@
-import argparse
 import json
 import os
-
+import urllib.request
 from google_translator import GoogleTranslator
 import sys
-
-Translator = GoogleTranslator()
+from argument_reader import ArgumentReader
 
 
 def get_settings():
@@ -27,82 +25,34 @@ def get_settings():
     return settings
 
 
-# get arguments from JSON file
-def get_arguments():
+def check_internet_connection(host="https://www.google.com"):
     try:
-        with open(os.path.join(sys.path[0], "arguments.json"), "r") as file:
-            data = json.load(file)
+        urllib.request.urlopen(host)
+        return True
     except:
-        print("Error: JSON file not found.")
-        data = None
-    return data["argument"], data["description"]
+        return False
 
 
-def get_examples():
-    examples = dict()
-    # arguments
-    arguments = get_arguments()[0]
-    text_examples = arguments["text"]["examples"]
-    examples["text"] = text_examples
-    source_language_examples = arguments["source"]["examples"]
-    examples["source"] = source_language_examples
-    target_language_examples = arguments["target"]["examples"]
-    examples["target"] = target_language_examples
-
-    ls = ["Examples:\n"]
-    for example in examples:
-        ls.append(example + "\n")
-        for item in examples[example]:
-            ls.append("\t" + item + "\n")
-        ls.append("\n")
-    return "".join(ls)
-
+SETTINGS = get_settings()
 
 if __name__ == "__main__":
-    arguments, description = get_arguments()
-    settings = get_settings()
-    parser = argparse.ArgumentParser(
-        description=description,
-        formatter_class=argparse.RawTextHelpFormatter,
-        epilog=get_examples(),
-    )
+    if not check_internet_connection():
+        print("No Internet Connection.\nplease check your connection and try again.")
+        exit()
 
-    # Intialize the parser
+    Translator = GoogleTranslator()
+    argumentReader = ArgumentReader()
 
-    version = arguments["version"]
-    parser.add_argument(
-        version["name"], version["flag"], action="version", version=version["value"]
-    )
-
-    # mandatory argument
-    text_arg = arguments["text"]
-    parser.add_argument("text", help=text_arg["help"])
-
-    # optional arguments
-    source_language_arg = arguments["source"]
-    parser.add_argument(
-        source_language_arg["name"],
-        source_language_arg["flag"],
-        help=source_language_arg["help"],
-    )
-
-    target_language_arg = arguments["target"]
-    parser.add_argument(
-        target_language_arg["name"],
-        target_language_arg["flag"],
-        help=target_language_arg["help"],
-        default=settings["primary_langauge"],
-    )
-
-    # exit_app = arguments["exit"]
-    # parser.add_argument(
-    #     exit_app["name"], exit_app["flag"], help=exit_app["help"], choices=["1", "0"]
-    # )
-    args = parser.parse_args()
-
+    args = argumentReader.get_arguments()
     text, target_language, source_language = args.text, args.target, args.source
+    if not target_language:
+        target_language = SETTINGS["primary_langauge"]
+
     print(
         Translator.translate(
-            text, target_language, source_language if source_language else "auto"
+            text,
+            target_language if target_language else "auto",
+            source_language if source_language else "auto",
         )
     )
+    # print(text, target_language, source_language)
