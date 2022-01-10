@@ -1,8 +1,10 @@
 # GoTransPy
 
+![alt text](./GoTransPy.png)
+
+You can translate what you want using your terminal instead of wasting your memory opening a browser.
 A free and unlimited python CLI for google translate based on [google_trans_new](https://github.com/lushan88a/google_trans_new).  
 It's very easy to use and solve the problem that the old api which use tk value cannot be used.
-This interface is for academic use only, please do not use it for commercial use.
 
 ---
 

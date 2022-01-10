@@ -1,11 +1,11 @@
 {
+    "version": {
+        "name": "-v",
+        "flag": "--version",
+        "value": "0.1.0"
+    },
     "description": "This tool is a free and unlimited python CLI for google translate.\nDeveloped by Youssef Mohamd.\nGithub:(https://github.com/youssefmo7amed)\nbased on (lushan88a/google_trans_new)\nunder MIT license.",
     "argument": {
-        "version": {
-            "name": "-v",
-            "flag": "--version",
-            "value": "0.0.1"
-        },
         "text": {
             "help": "text that will be translated.",
             "examples": [
@@ -19,36 +19,38 @@
             "flag": "--source",
             "help": "the source language.",
             "examples": [
-                "python main.py Ägypten -s de",
-                "python main.py مصر -s ar",
-                "python main.py مصر --source ar",
-                "python main.py Mısır -s tr",
-                "python main.py Mısır -source tr"
-            ]
+                "python main.py Ägypten\t -s de",
+                "python main.py مصر \t -s ar",
+                "python main.py مصر \t --source ar",
+                "python main.py Mısır\t -s tr",
+                "python main.py Mısır\t --source tr"
+            ],
+            "action": "store"
         },
         "target": {
             "name": "-t",
             "flag": "--target",
             "help": "the target language.",
             "examples": [
-                "python main.py Ägypten -t en",
-                "python main.py Ägypten --target en",
-                "python main.py مصر -t hi",
-                "python main.py Mısır -t ar",
-                "python main.py Mısır -target ar"
-            ]
+                "python main.py Ägypten\t -t en",
+                "python main.py Ägypten\t --target en",
+                "python main.py مصر \t -t hi",
+                "python main.py Mısır\t -t ar",
+                "python main.py Mısır\t --target ar"
+            ],
+            "action": "store"
         },
-        "file":{
-            "name":"-f",
+        "file": {
+            "name": "-f",
             "flag": "--file",
             "help": "read from file.",
             "examples": [
-                "python main.py Ägypten -t en",
-                "python main.py Ägypten --target en",
-                "python main.py مصر -t hi",
-                "python main.py Mısır -t ar",
-                "python main.py Mısır -target ar"
-            ]
+                "python main.py -f\t folder_name/file_name.extension",
+                "python main.py -f\t \"folder_name/file_name.extension\"",
+                "python main.py --file\t \"folder_name/file_name.extension\"",
+                "python main.py --file\t \"C:\\\\...\\\\folder_name\\\\file_name.extension\""
+            ],
+            "action": "store_true"
         }
     }
 }

@@ -1,2 +1,5 @@
 __pycache__
 test
+src/test
+test_code.py
+read_file.py

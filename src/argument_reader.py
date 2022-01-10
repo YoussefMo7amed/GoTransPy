@@ -4,25 +4,6 @@ import os
 import sys
 
 
-def get_settings():
-    try:
-        with open(os.path.join(sys.path[0], "settings.json"), "r") as file:
-            settings = json.load(file)
-    except:
-        print("settings file not found!\nloading default settings....")
-        try:
-            with open(os.path.join(sys.path[0], "defaultSettings.json"), "r") as file:
-                settings = json.load(file)
-            print("creating settings file.....")
-            with open(os.path.join(sys.path[0], "settings.json"), "w") as file:
-                json.dump(settings, file)
-            print("done creating settings file")
-        except:
-            print("ERROR: settings file not found!\ncant't open the app.")
-            return None
-    return settings
-
-
 # get arguments from JSON file
 def get_arguments():
     try:
@@ -31,19 +12,16 @@ def get_arguments():
     except:
         print("Error: JSON file not found.")
         data = None
-    return data["argument"], data["description"]
+    return data["version"], data["description"], data["argument"]
 
 
 def get_examples():
     examples = dict()
     # arguments
-    arguments = get_arguments()[0]
-    text_examples = arguments["text"]["examples"]
-    examples["text"] = text_examples
-    source_language_examples = arguments["source"]["examples"]
-    examples["source"] = source_language_examples
-    target_language_examples = arguments["target"]["examples"]
-    examples["target"] = target_language_examples
+    arguments = get_arguments()[2]
+
+    for argument in arguments:
+        examples[argument] = arguments[argument]["examples"]
 
     ls = ["Examples:\n"]
     for example in examples:
@@ -54,8 +32,7 @@ def get_examples():
     return "".join(ls)
 
 
-ARGUMENTS, DESCRIPTION = get_arguments()
-SETTINGS = get_settings()
+VERSION, DESCRIPTION, ARGUMENTS = get_arguments()
 
 
 class ArgumentReader:
@@ -71,30 +48,28 @@ class ArgumentReader:
 
     # Intialize the parser console arguments
     def init_parser(self):
-        version = self.arguments["version"]
+        version = VERSION
         self.parser.add_argument(
             version["name"], version["flag"], action="version", version=version["value"]
         )
 
         # mandatory argument
         text_arg = self.arguments["text"]
-        self.parser.add_argument("text", help=text_arg["help"])
+        self.parser.add_argument("text", help=text_arg["help"], type=str)
+
+        # text_arg = self.arguments["text"]
+        # self.parser.add_argument("text", help=text_arg["help"], type=file)
 
         # optional arguments
-        source_language_arg = self.arguments["source"]
-        self.parser.add_argument(
-            source_language_arg["name"],
-            source_language_arg["flag"],
-            help=source_language_arg["help"],
-        )
-
-        target_language_arg = self.arguments["target"]
-        self.parser.add_argument(
-            target_language_arg["name"],
-            target_language_arg["flag"],
-            help=target_language_arg["help"],
-            default=SETTINGS["primary_langauge"],
-        )
+        for argument in ARGUMENTS:
+            if argument == "text":
+                continue  # because it is a mandatory argument, and already added
+            current_argument = ARGUMENTS[argument]
+            self.parser.add_argument(
+                current_argument["name"],
+                current_argument["flag"],
+                help=current_argument["help"],
+            )
 
     def get_arguments(self):
         self.init_parser()
